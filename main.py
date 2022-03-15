@@ -19,7 +19,7 @@ MONITORS = pyglet.canvas.Display().get_screens()
 MONITOR = MONITORS[MONITOR_NUM]
 
 #change that constant to generate a board with ELEMENTS_TO_REMOVE missing
-ELEMENTS_TO_REMOVE = 66
+ELEMENTS_TO_REMOVE = 60
 
 
 class MyProject(arcade.Window):
@@ -59,6 +59,8 @@ class MyProject(arcade.Window):
         self.sudoku = Sudoku(self.boardToSolve, SCREEN_WIDTH)
         self.sudoku.setConsantTiles(self.boardToSolve)
 
+        #print(self.sudokuSolver.AC3(self.boardToSolve))
+
         pass
 
     def on_draw(self):
@@ -86,7 +88,8 @@ class MyProject(arcade.Window):
         elif key == arcade.key.S:
             #Key S - solve the sudoku
             startTime = time.time()
-            solved = self.sudokuSolver.solve(self.boardToSolve, 0 , 0)
+            solved = self.sudokuSolver.solve(self.boardToSolve, 0 , 0, self.sudokuSolver.AC3(self.boardToSolve))
+            #solved = self.sudokuSolver.solve(self.boardToSolve, 0 , 0)
             endTime = time.time()
             print("Solved in ", round((endTime - startTime) * 1000), " ms")
             self.sudoku.board = solved
