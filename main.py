@@ -6,7 +6,7 @@ from sudoku import Sudoku
 from sudokuGenerator import SudokuGenerator
 from sudokuSolver import SudokuSolver
 
-SCREEN_WIDTH = 800
+SCREEN_WIDTH = 1200
 SCREEN_HEIGHT = SCREEN_WIDTH
 SCREEN_TITLE = "Sudoku SCP Solver"
 
